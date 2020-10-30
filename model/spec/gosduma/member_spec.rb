@@ -20,6 +20,11 @@ module Gosduma
         let(:votes) { [Vote.new("for"), Vote.new("absent")] }
         it { is_expected.to eq 0.5 }
       end
+
+      context do
+        let(:votes) { [] }
+        it { is_expected.to eq 1 }
+      end
     end
   end
 end

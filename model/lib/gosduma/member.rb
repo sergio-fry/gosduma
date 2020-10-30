@@ -10,7 +10,7 @@ module Gosduma
     end
 
     def attendance
-      # return 1 if @votes.size == 0
+      return 1 if @votes.size == 0
 
       (total_votes - absents_count.to_f) / total_votes
     end
