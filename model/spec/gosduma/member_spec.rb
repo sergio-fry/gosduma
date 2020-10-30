@@ -3,7 +3,8 @@ require "gosduma/member"
 
 module Gosduma
   RSpec.describe Member do
-    let(:member) { described_class.new }
+    let(:member) { Member.new id: 1, votes: member_votes }
+    let(:member_votes) { MemberVotes.new }
 
     describe "#attendance" do
       subject { member.attendance(from, to) }

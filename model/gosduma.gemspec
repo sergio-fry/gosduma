@@ -26,4 +26,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_runtime_dependency "dry-auto_inject", "~> 0.7.0"
+  spec.add_runtime_dependency "dry-container", "~> 0.7.2"
 end
