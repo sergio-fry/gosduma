@@ -3,15 +3,22 @@ require "gosduma/member"
 
 module Gosduma
   RSpec.describe Member do
-    let(:member) { Member.new id: 1, votes: member_votes }
-    let(:member_votes) { MemberVotes.new }
+    let(:member) { Member.new id: 1 }
+    before { TestContainer.stub("repositories.votes", repo) }
+    let(:repo) { double(:repo) }
 
     describe "#attendance" do
-      subject { member.attendance(from, to) }
-      let(:from) { DateTime.parse('2020-01-01 00:00')  }
-      let(:to) { DateTime.parse('2020-02-01 00:00')  }
+      subject { member.attendance }
 
-      it { is_expected.to eq 1 }
+      context do
+        let(:votes) { [Vote.new("for")] }
+        it { is_expected.to eq 1 }
+      end
+
+      context do
+        let(:votes) { [Vote.new("for"), Vote.new("absent")] }
+        it { is_expected.to eq 0.5 }
+      end
     end
   end
 end

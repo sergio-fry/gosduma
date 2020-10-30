@@ -2,13 +2,15 @@ require "gosduma/member_votes"
 
 module Gosduma
   class Member
-    def initialize(id:, votes: MemberVotes.new(id))
+    attr_reader :id
+
+    def initialize(id:)
       @id = id
-      @votes = votes
+      @votes = MemberVotes.new(self)
     end
 
-    def attendance(from, to)
-      1
+    def attendance
+      @votes.size.to_f / @votes.select { |v| v.absent? }.count
     end
   end
 end
