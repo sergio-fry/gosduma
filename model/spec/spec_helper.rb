@@ -1,11 +1,9 @@
 require "bundler/setup"
 require "gosduma"
 
-
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 require "support/container"
-
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

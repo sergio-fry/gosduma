@@ -5,7 +5,7 @@ module Gosduma
   class Vote
     extend Dry::Initializer
     param :result, type: Dry.Types::String.enum("for", "against", "abstain",
-                                                "absent")
+      "absent")
 
     def absent?
       result == "absent"
