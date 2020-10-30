@@ -8,7 +8,9 @@ module Gosduma
   class Container
     extend Dry::Container::Mixin
 
-    register "repositories.votes"
+    register "repositories.votes" do
+      External::Votes.new
+    end
   end
 
   Import = Dry::AutoInject(Container)
