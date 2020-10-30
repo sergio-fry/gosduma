@@ -1,6 +1,15 @@
 require "gosduma/version"
+require "dry-container"
+require "dry-auto_inject"
 
 module Gosduma
   class Error < StandardError; end
-  # Your code goes here...
+
+  class Container
+    extend Dry::Container::Mixin
+
+    register "repositories.votes"
+  end
+
+  Import = Dry::AutoInject(Container)
 end

@@ -5,7 +5,7 @@ require "gosduma/vote"
 module Gosduma
   RSpec.describe Member do
     let(:member) { Member.new id: 1 }
-    before { TestContainer.stub("repositories.votes", repo) }
+    before { Container.stub("repositories.votes", repo) }
     let(:repo) { double(:repo, member_votes: votes) }
 
     describe "#attendance" do
