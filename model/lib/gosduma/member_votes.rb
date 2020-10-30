@@ -10,7 +10,7 @@ module Gosduma
     end
 
     def size
-      1
+      votes.member_votes(@member.id).size
     end
 
     def each

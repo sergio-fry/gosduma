@@ -10,7 +10,9 @@ module Gosduma
     end
 
     def attendance
-      @votes.size.to_f / @votes.select { |v| v.absent? }.count
+      # return 1 if @votes.size == 0
+
+      (@votes.size - @votes.select { |v| v.absent? }.count.to_f) / @votes.size
     end
   end
 end
