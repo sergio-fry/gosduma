@@ -10,7 +10,12 @@ module Gosduma
       def vote_stats(deputy)
         resp = @http.get "http://api.duma.gov.ru/api/:token/voteStats.xml?deputy=99111015"
 
-        data = JSON.parse(resp.body, symbolize_names: true)
+        {
+          absentCount: resp[:absentCount].to_i,
+          abstainCount: resp[:abstainCount].to_i,
+          againstCount: resp[:againstCount].to_i,
+          forCount: resp[:forCount].to_i
+        }
       end
     end
   end

@@ -1,4 +1,3 @@
-
 module Gosduma
   module External
     class HTTP

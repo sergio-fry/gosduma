@@ -6,9 +6,7 @@ module Gosduma
       include Import["gateways.http"]
 
       def get(url, params: {})
-        resp = http.get url
-
-        JSON.parse(resp.body, symbolize_names: true)
+        JSON.parse(http.get(url).body, symbolize_names: true)
       end
     end
   end

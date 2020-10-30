@@ -28,9 +28,9 @@ module Gosduma
         end
 
         it { is_expected.to include(forCount: 3) }
-        it { is_expected.to include(againstCount: "4") }
-        it { is_expected.to include(abstainCount: "5") }
-        it { is_expected.to include(absentCount: "6") }
+        it { is_expected.to include(againstCount: 4) }
+        it { is_expected.to include(abstainCount: 5) }
+        it { is_expected.to include(absentCount: 6) }
       end
     end
   end
