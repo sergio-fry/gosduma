@@ -4,6 +4,8 @@ PATH
     gosduma (0.1.0)
       dry-auto_inject (~> 0.7.0)
       dry-container (~> 0.7.2)
+      dry-initializer (~> 3.0.4)
+      dry-types (~> 1.4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -22,6 +24,19 @@ GEM
     dry-core (0.4.9)
       concurrent-ruby (~> 1.0)
     dry-equalizer (0.3.0)
+    dry-inflector (0.2.0)
+    dry-initializer (3.0.4)
+    dry-logic (1.0.8)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 0.2)
+      dry-equalizer (~> 0.2)
+    dry-types (1.4.0)
+      concurrent-ruby (~> 1.0)
+      dry-container (~> 0.3)
+      dry-core (~> 0.4, >= 0.4.4)
+      dry-equalizer (~> 0.3)
+      dry-inflector (~> 0.1, >= 0.1.2)
+      dry-logic (~> 1.0, >= 1.0.2)
     rake (12.3.3)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)

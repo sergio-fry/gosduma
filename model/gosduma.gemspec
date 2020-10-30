@@ -29,4 +29,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "dry-auto_inject", "~> 0.7.0"
   spec.add_runtime_dependency "dry-container", "~> 0.7.2"
+  spec.add_runtime_dependency "dry-initializer", "~> 3.0.4"
+  spec.add_runtime_dependency "dry-types", "~> 1.4.0"
 end
