@@ -1,26 +1,18 @@
-require "gosduma/member_votes"
-
 module Gosduma
   class Member
-    attr_reader :id
+    extend Dry::Initializer
+    param :id
 
-    def initialize(id:)
-      @id = id
-      @votes = MemberVotes.new(self)
-    end
+    include Import["gateways.duma"]
 
     def attendance
-      return 1 if @votes.size == 0
+      total = duma.vote_stats.values.sum
 
-      (total_votes - absents_count.to_f) / total_votes
-    end
+      return 1 if total == 0
 
-    def absents_count
-      @votes.count { |v| v.absent? }
-    end
+      absent = duma.vote_stats[:absentCount]
 
-    def total_votes
-      @votes.size
+      (total - absent).to_f / total
     end
   end
 end
