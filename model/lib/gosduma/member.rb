@@ -16,7 +16,7 @@ module Gosduma
     end
 
     def absents_count
-      @votes.select { |v| v.absent? }.count
+      @votes.count { |v| v.absent? }
     end
 
     def total_votes
