@@ -6,15 +6,17 @@ module Gosduma
     include Import["gateways.duma"]
 
     def attendance
-      return 1 if total_votes == 0
+      return 1 if total_votings == 0
 
-      absent = duma.vote_stats[:absentCount]
-
-      (total_votes - absent).to_f / total_votes
+      (total_votings - absents_count).to_f / total_votings
     end
 
-    def total_votes
+    def total_votings
       duma.vote_stats.values.sum
+    end
+
+    def absents_count
+      duma.vote_stats[:absentCount]
     end
   end
 end
