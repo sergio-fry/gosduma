@@ -4,7 +4,7 @@ module Gosduma
     param :member
     param :interval
 
-    include Import["gateways.json"]
+    include Import["json"]
 
     def call
       return 1 if total_votings == 0
