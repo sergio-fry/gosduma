@@ -1,5 +1,4 @@
 require "dry-auto_inject"
-require "dry-container"
 require "dry-initializer"
 
 require "gosduma/version"

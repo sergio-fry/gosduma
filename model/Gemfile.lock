@@ -3,7 +3,6 @@ PATH
   specs:
     gosduma (0.1.0)
       dry-auto_inject (~> 0.7.0)
-      dry-container (~> 0.7.2)
       dry-initializer (~> 3.0.4)
       dry-types (~> 1.4.0)
       faraday (~> 1.1.0)
