@@ -1,10 +1,11 @@
+require_relative "external/duma"
+
 module Gosduma
   class MemberPresence
     extend Dry::Initializer
     param :member
     param :interval
-
-    include Import["json"]
+    option :duma, default: -> { External::Duma.new }
 
     def call
       return 1 if total_votings == 0
@@ -21,7 +22,7 @@ module Gosduma
     end
 
     def vote_stats
-      resp = json.get "http://api.duma.gov.ru/api/:token/voteStats.xml?deputy=99111015"
+      resp = duma.get "voteStats", deputy: member.id
 
       {
         absentCount: resp[:absentCount].to_i,

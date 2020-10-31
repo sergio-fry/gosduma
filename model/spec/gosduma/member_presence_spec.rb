@@ -5,7 +5,7 @@ require "gosduma/external/http/http"
 
 module Gosduma
   RSpec.describe MemberPresence do
-    subject { described_class.new(member).call }
+    subject { described_class.new(member, nil).call }
     let(:member) { Member.new 1 }
 
     context "integration" do
