@@ -4,19 +4,10 @@ module Gosduma
   module External
     module HTTP
       class JSON
-        include Import["gateways.http"]
-
-        class Response
-          extend Dry::Initializer
-          option :http_response
-
-          def body
-            JSON.parse(http_response.body, symbolize_names: true)
-          end
-        end
+        include Import["http"]
 
         def get(url)
-          Response.new http.get(url)
+          ::JSON.parse(http.get(url).body, symbolize_names: true)
         end
       end
     end
