@@ -1,5 +1,3 @@
-require "faraday"
-
 module Gosduma
   module External
     class HTTP
@@ -10,16 +8,7 @@ module Gosduma
         option :body, type: Types::Coercible::String
         option :headers, type: Types::Coercible::Hash
       end
-
-      def get(url, params: {})
-        resp = Faraday.get url
-
-        Response.new(
-          status: resp.status,
-          body: resp.body,
-          headers: resp.headers
-        )
-      end
     end
   end
 end
+

@@ -5,8 +5,8 @@ require "gosduma/vote"
 module Gosduma
   RSpec.describe Member do
     let(:member) { Member.new id: 1 }
-    before { Container.stub("gateways.duma", duma) }
     let(:duma) { double(:duma, vote_stats: vote_stats) }
+    before { Container.stub("gateways.json", duma) }
 
     describe "#presence" do
       subject { member.presence }
