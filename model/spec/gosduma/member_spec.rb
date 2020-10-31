@@ -4,11 +4,12 @@ require "gosduma/vote"
 
 module Gosduma
   RSpec.describe Member do
-    let(:member) { Member.new id: 1, duma: duma }
+    let(:member) { Member.new id: 1 }
+    before { Container.stub("gateways.duma", duma) }
     let(:duma) { double(:duma, vote_stats: vote_stats) }
 
-    describe "#attendance" do
-      subject { member.attendance }
+    describe "#presence" do
+      subject { member.presence }
 
       context do
         let(:vote_stats) do

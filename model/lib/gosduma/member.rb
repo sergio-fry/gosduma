@@ -1,22 +1,12 @@
+require_relative "member_presence"
+
 module Gosduma
   class Member
     extend Dry::Initializer
     param :id
 
-    include Import["gateways.duma"]
-
-    def attendance
-      return 1 if total_votings == 0
-
-      (total_votings - absents_count).to_f / total_votings
-    end
-
-    def total_votings
-      duma.vote_stats.values.sum
-    end
-
-    def absents_count
-      duma.vote_stats[:absentCount]
+    def presence
+      MemberPresence.new(self, nil).call
     end
   end
 end
