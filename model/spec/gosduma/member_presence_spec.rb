@@ -1,3 +1,5 @@
+require "gosduma/member_presence"
+
 module Gosduma
   RSpec.describe MemberPresence do
     let(:member) { Member.new id: 1 }
