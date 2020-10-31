@@ -1,5 +1,3 @@
-require_relative "external/json_http"
-
 module Gosduma
   class MemberPresence
     extend Dry::Initializer

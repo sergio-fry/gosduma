@@ -11,21 +11,14 @@ module Gosduma
   class Container
     extend Dry::Container::Mixin
 
-    register("repositories.votes") { External::Votes.new }
-
-    register("gateways.http") do
-      require_relative "gosduma/external/http"
-      External::HTTP.new
+    register("http") do
+      require_relative "gosduma/external/http/http"
+      External::HTTP::HTTP.new
     end
 
-    register("gateways.json") do
-      require_relative "gosduma/external/json_http"
-      External::JSONHTTP.new
-    end
-
-    register("gateways.duma") do
-      require "gosduma/external/duma"
-      External::Duma.new
+    register("json") do
+      require_relative "gosduma/external/http/json"
+      External::HTTP::JSON.new
     end
   end
 
