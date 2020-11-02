@@ -4,7 +4,7 @@ require "gosduma/vote"
 
 module Gosduma
   RSpec.describe Member do
-    let(:member) { Member.new id: 1 }
+    let(:member) { Member.new 1 }
 
     before { Container.stub("json", json) }
     let(:json) { double(:json, get: response) }

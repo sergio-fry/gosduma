@@ -2,11 +2,11 @@ module Gosduma
   module External
     class DumaRequest
       extend Dry::Initializer
+      param :method
+      option :params, default: -> { {} }
+
       include Import["json"]
       include Import["config"]
-
-      param :method
-      param :params
 
       def call
         json.get uri.to_s

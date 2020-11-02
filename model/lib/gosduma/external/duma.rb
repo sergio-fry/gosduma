@@ -4,7 +4,7 @@ module Gosduma
   module External
     class Duma
       def get(method, params = {})
-        DumaRequest.new(method, params).call
+        DumaRequest.new(method, params: params).call
       end
     end
   end
