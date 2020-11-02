@@ -1,4 +1,6 @@
 require "bundler/setup"
+require "byebug"
+
 require "gosduma"
 
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

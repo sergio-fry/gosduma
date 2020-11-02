@@ -1,10 +1,10 @@
+require_relative "duma_request"
+
 module Gosduma
   module External
     class Duma
-      include Import["json"]
-
       def get(method, params = {})
-        json.get "http://api.duma.gov.ru/api/:token/voteStats.xml?deputy=99111015"
+        DumaRequest.new(method, params).call
       end
     end
   end
