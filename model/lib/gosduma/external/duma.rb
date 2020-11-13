@@ -1,4 +1,4 @@
-require_relative "duma_request"
+require_relative "duma_response"
 
 module Gosduma
   module External
@@ -7,7 +7,7 @@ module Gosduma
       end
 
       def vote_stats(deputy)
-        resp = DumaRequest.new("voteStats", deputy: deputy).call
+        resp = DumaResponse.new("voteStats", deputy: deputy).call
 
         {
           absent_count: resp[:absentCount].to_i,
