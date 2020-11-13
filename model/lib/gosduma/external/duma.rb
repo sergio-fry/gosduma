@@ -3,6 +3,19 @@ require_relative "duma_request"
 module Gosduma
   module External
     class Duma
+      def deputies
+        resp = DumaRequest.new("deputies", position: "Депутат ГД", current: 1).call
+
+        resp.map do |item|
+          {
+            id: item[:id],
+            name: "Абдулатипов Рамазан Гаджимурадович",
+            position: "Член СФ",
+            is_current: false
+          }
+        end
+      end
+
       def vote_stats(deputy)
         resp = DumaRequest.new("voteStats", deputy: deputy).call
 
