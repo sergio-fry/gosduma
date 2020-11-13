@@ -10,7 +10,7 @@ module Gosduma
       resp = External::DumaResponse.new("deputies", position: "Депутат ГД", current: 1).call
 
       resp.each do |item|
-        yield Member.new(1)
+        yield Member.new(item[:id])
       end
     end
   end
