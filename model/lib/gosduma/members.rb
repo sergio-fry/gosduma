@@ -1,3 +1,5 @@
+require "gosduma/external/duma_response"
+
 module Gosduma
   class Members
     include Enumerable
@@ -5,7 +7,9 @@ module Gosduma
     option :limit
 
     def each
-      10.times do
+      resp = External::DumaResponse.new("deputies", position: "Депутат ГД", current: 1).call
+
+      resp.each do |item|
         yield Member.new(1)
       end
     end
