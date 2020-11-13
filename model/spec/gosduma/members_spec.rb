@@ -20,21 +20,19 @@ module Gosduma
           "name": "Абдулатипов Рамазан Гаджимурадович",
           "position": "Член СФ",
           "isCurrent": false
-        }, {
-          "id": "99100001",
-          "name": "Абдулбасиров Магомедтагир Меджидович",
-          "position": "Депутат ГД",
-          "isCurrent": false
-        }, {
-          "id": "99100002",
-          "name": "Абельцев Сергей Николаевич",
-          "position": "Депутат ГД",
-          "isCurrent": true
         }].to_json
       )
     end
 
-    it { expect(members.to_a.size).to eq 3 }
-    it { expect(members.first).to be_a Member }
+    it { expect(members.to_a.size).to eq 1 }
+
+    describe "member" do
+      subject(:member) { members.first }
+      it { is_expected.to be_a Member }
+
+      it { expect(member.id).to eq "99100491" }
+      it { expect(member.name).to eq "Абдулатипов Рамазан Гаджимурадович" }
+      it { expect(member.position).to eq "Член СФ" }
+    end
   end
 end
