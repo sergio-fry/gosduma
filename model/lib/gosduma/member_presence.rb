@@ -18,18 +18,11 @@ module Gosduma
     end
 
     def absents_count
-      vote_stats[:absentCount]
+      vote_stats[:absent_count]
     end
 
     def vote_stats
-      resp = duma.get "voteStats", deputy: member.id
-
-      {
-        absentCount: resp[:absentCount].to_i,
-        abstainCount: resp[:abstainCount].to_i,
-        againstCount: resp[:againstCount].to_i,
-        forCount: resp[:forCount].to_i
-      }
+      duma.vote_stats member.id
     end
   end
 end
