@@ -2,5 +2,43 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   </head>
+  <body>
+    <h1>Госдума</h1>
+
+    <div id="app">
+      <table>
+        <tr>
+          <th>ФИО</th>
+          <th>Посещаемость</th>
+        </tr>
+        <tr v-for="member in members">
+          <td>{{ member.name }}</td>
+          <td>{{ member.presence }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          members: []
+        },
+        created: function() {
+
+          fetch('/api/members').
+            then(response => response.json()).
+            then(data => {
+              data.forEach(member => this.members.push(member))
+            });
+        }
+      })
+    </script>
+  </body>
 </html>

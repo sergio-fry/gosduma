@@ -11,8 +11,9 @@ module Gosduma
       include Import["members"]
 
       route do |r|
+        r.public
         r.root do
-          r.redirect "/api/members"
+          r.redirect "/index.html"
         end
 
         r.on "api" do
