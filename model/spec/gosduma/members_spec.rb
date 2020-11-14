@@ -9,19 +9,17 @@ module Gosduma
   RSpec.describe Members do
     let(:members) { Members.new limit: 10 }
 
-    before { Container.stub("http", http) }
-    let(:http) { double(:http, get: http_response) }
-    let(:http_response) do
-      External::HTTP::HTTP::Response.new(
-        status: 200,
-        headers: {},
-        body: [{
-          "id": "99100491",
-          "name": "Абдулатипов Рамазан Гаджимурадович",
-          "position": "Член СФ",
-          "isCurrent": false
-        }].to_json
-      )
+    before { Container.stub("json", json) }
+    let(:json) { double(:json, get: data) }
+    let(:data) do
+      [
+        {
+          id: "99100491",
+          name: "Абдулатипов Рамазан Гаджимурадович",
+          position: "Член СФ",
+          isCurrent: false
+        }
+      ]
     end
 
     it { expect(members.to_a.size).to eq 1 }
