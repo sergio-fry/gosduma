@@ -37,7 +37,7 @@ module Gosduma
     private
 
     def response
-      @response ||= External::DumaResponse.new("voteStats", deputy: member_id).call
+      @response ||= External::DumaResponse.new("voteStats", params: {deputy: member_id}).call
     end
   end
 end
