@@ -1,2 +1,4 @@
-/spec/examples.txt
 /.env.local
+/.env.services
+/.volumes
+/spec/examples.txt

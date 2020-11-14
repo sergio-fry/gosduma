@@ -5,11 +5,14 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem "roda"
-gem "gosduma", path: '../../model'
+gem "gosduma", path: "../../model"
+
+gem "redis"
 
 group :development, :test do
-  gem "shotgun"
-  gem "rspec"
+  gem "devup"
   gem "rack-test"
+  gem "rspec"
+  gem "shotgun"
   gem "warning"
 end

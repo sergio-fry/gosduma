@@ -1,6 +1,7 @@
 require "roda"
 
 require "gosduma"
+require "gosduma/web/cached_member"
 
 module Gosduma
   module Web
@@ -18,9 +19,11 @@ module Gosduma
 
         r.on "api" do
           r.is "members" do
-            members.call(limit: 1000).take(5).map do |member|
-              {id: member.id, name: member.name, presence: member.presence}
-            end
+            members.call(limit: 1000)
+              .map { |member| CachedMember.new(member) }
+              .map { |member|
+                {id: member.id, name: member.name, presence: member.presence}
+              }
           end
         end
       end

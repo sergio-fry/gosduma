@@ -12,11 +12,11 @@
       <table>
         <tr>
           <th>ФИО</th>
-          <th>Посещаемость</th>
+          <th>Прогулы</th>
         </tr>
         <tr v-for="member in members">
           <td>{{ member.name }}</td>
-          <td>{{ member.presence }}</td>
+          <td>{{ 100 - Math.round(member.presence * 100) }}%</td>
         </tr>
       </table>
     </div>
