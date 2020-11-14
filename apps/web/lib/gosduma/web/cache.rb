@@ -4,16 +4,28 @@ module Gosduma
       extend Dry::Initializer
       param :redis
 
-      def fetch(key, ttl:)
-        if redis.exists? key
-          redis.get key
+      def fetch(key)
+        if exists? key
+          read key
         else
           val = yield
 
-          redis.set key, val, ex: ttl
+          write key, val
 
           val
         end
+      end
+
+      def exists?(key)
+        redis.exists? key
+      end
+
+      def read(key)
+        Marshal.load redis.get(key)
+      end
+
+      def write(key, val)
+        redis.set key, Marshal.dump(val)
       end
     end
   end

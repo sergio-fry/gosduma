@@ -20,7 +20,7 @@ module Gosduma
         r.on "api" do
           r.is "members" do
             members.call(limit: 1000)
-              .map { |member| CachedMember.new(member) }
+              .take(200)
               .map { |member|
                 {id: member.id, name: member.name, presence: member.presence}
               }

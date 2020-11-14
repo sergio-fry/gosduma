@@ -14,7 +14,7 @@
           <th>ФИО</th>
           <th>Прогулы</th>
         </tr>
-        <tr v-for="member in members">
+        <tr v-for="member in sort(members)">
           <td>{{ member.name }}</td>
           <td>{{ 100 - Math.round(member.presence * 100) }}%</td>
         </tr>
@@ -31,12 +31,18 @@
           members: []
         },
         created: function() {
-
           fetch('/api/members').
             then(response => response.json()).
             then(data => {
               data.forEach(member => this.members.push(member))
             });
+        },
+        methods: {
+          sort: function(members) {
+            return this.members.slice().sort(function(a, b){
+              return (a.presence > b.presence) ? 1 : -1;
+            })
+          }
         }
       })
     </script>

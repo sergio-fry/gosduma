@@ -15,7 +15,7 @@ module Gosduma
       end
 
       def presence
-        cache.fetch("#{id}/presence", ttl: 60 * 60 * 24) do
+        cache.fetch("#{id}/presence") do
           member.presence
         end
       end

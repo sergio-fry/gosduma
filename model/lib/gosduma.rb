@@ -18,19 +18,29 @@ module Gosduma
       setting :token, ENV.fetch("DUMA_API_TOKEN")
       setting :app_token, ENV.fetch("DUMA_API_APP_TOKEN")
     end
+
+    setting :json, nil
   end
 
   class Container
     extend Dry::Container::Mixin
 
-    register("http") do
-      require_relative "gosduma/external/http/http"
-      External::HTTP::HTTP.new
+    register("http", memoize: true) do
+      require "faraday"
+      require "faraday_middleware"
+
+      Faraday.new do |builder|
+        builder.adapter Faraday.default_adapter
+      end
     end
 
     register("json") do
-      require_relative "gosduma/external/http/json"
-      External::HTTP::JSON.new
+      if resolve("config").json.nil?
+        require_relative "gosduma/external/http/json"
+        External::HTTP::JSON.new
+      else
+        resolve("config").json
+      end
     end
 
     register("config") { Config.config }

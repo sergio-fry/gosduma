@@ -7,6 +7,7 @@ PATH
       dry-initializer (~> 3.0.4)
       dry-types (~> 1.4.0)
       faraday (~> 1.1.0)
+      faraday_middleware (~> 1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -47,6 +48,8 @@ GEM
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
+    faraday_middleware (1.0.0)
+      faraday (~> 1.0)
     multipart-post (2.1.1)
     rack (2.2.3)
     rack-test (1.1.0)

@@ -31,5 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "dry-initializer", "~> 3.0.4"
   spec.add_runtime_dependency "dry-types", "~> 1.4.0"
   spec.add_runtime_dependency "faraday", "~> 1.1.0"
+  spec.add_runtime_dependency "faraday_middleware", "~> 1.0.0"
   spec.add_runtime_dependency "dotenv"
 end
