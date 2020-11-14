@@ -8,7 +8,7 @@ module Gosduma
     option :position, optional: true
 
     def presence
-      MemberPresence.new(self, nil).call
+      MemberPresence.new(self, nil).value
     end
   end
 end

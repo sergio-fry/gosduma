@@ -5,7 +5,7 @@ require "gosduma/external/http/http"
 
 module Gosduma
   RSpec.describe MemberPresence do
-    subject { described_class.new(member, nil).call }
+    subject { described_class.new(member, nil).value }
     let(:member) { Member.new 1 }
 
     context "when json stubbed" do
