@@ -11,6 +11,10 @@ module Gosduma
         require "gosduma/members"
         ->(*args) { Members.new(*args) }
       end
+      register("vote_stats") do
+        require "gosduma/vote_stats"
+        ->(*args) { VoteStats.new(*args) }
+      end
     end
 
     Import = Dry::AutoInject(Container)

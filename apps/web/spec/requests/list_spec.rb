@@ -6,7 +6,7 @@ require "gosduma/member"
 
 module Gosduma
   module Web
-    RSpec.describe "GET /api/list" do
+    RSpec.describe "GET /api/members" do
       include Rack::Test::Methods
       def app
         Gosduma::Web::App.freeze.app
@@ -14,7 +14,7 @@ module Gosduma
 
       before { Container.stub("members", ->(_args) { members }) }
       let(:members) { [Member.new(1)] }
-      before { get "/api/list" }
+      before { get "/api/members" }
 
       it { expect(last_response).to be_ok }
 
