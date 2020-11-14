@@ -9,7 +9,7 @@ module Gosduma
       include Import["config"]
 
       def call
-        @data = json.get uri.to_s
+        json.get uri.to_s
       end
 
       private

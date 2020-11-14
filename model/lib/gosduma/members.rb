@@ -8,7 +8,7 @@ module Gosduma
     option :limit
 
     def each
-      resp = External::DumaResponse.new("deputies", position: "Депутат ГД", current: 1).call
+      resp = External::DumaResponse.new("deputies", params: {position: "Депутат ГД", current: 1}).call
 
       resp.each do |item|
         yield Member.new(
