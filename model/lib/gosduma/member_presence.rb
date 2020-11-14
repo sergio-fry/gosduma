@@ -5,6 +5,7 @@ module Gosduma
     extend Dry::Initializer
     param :member
     param :interval
+    option :vote_stats, default: -> { VoteStats.new(member.id) }
 
     def value
       return 1 if total_votings == 0
@@ -18,10 +19,6 @@ module Gosduma
 
     def absents_count
       vote_stats.absent_count
-    end
-
-    def vote_stats
-      @vote_stats ||= VoteStats.new(member.id)
     end
   end
 end

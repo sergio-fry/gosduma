@@ -5,51 +5,26 @@ require "gosduma/external/http/http"
 
 module Gosduma
   RSpec.describe MemberPresence do
-    subject { described_class.new(member, nil).value }
+    subject { described_class.new(member, nil, vote_stats: vote_stats).value }
     let(:member) { Member.new 1 }
+    let(:vote_stats) { double(:vote_stats) }
 
-    context "when json stubbed" do
-      before { Container.stub("json", json) }
-      let(:json) { double(:json, get: response) }
+    context do
+      let(:vote_stats) { double(:vote_stats, absent_count: 0, total: 1) }
 
-      context do
-        let(:response) do
-          {
-            absentCount: 0,
-            abstainCount: 1,
-            againstCount: 1,
-            forCount: 1
-          }
-        end
+      it { is_expected.to eq 1 }
+    end
 
-        it { is_expected.to eq 1 }
-      end
+    context do
+      let(:vote_stats) { double(:vote_stats, absent_count: 1, total: 2) }
 
-      context do
-        let(:response) do
-          {
-            absentCount: 1,
-            abstainCount: 1,
-            againstCount: 0,
-            forCount: 0
-          }
-        end
+      it { is_expected.to eq 0.5 }
+    end
 
-        it { is_expected.to eq 0.5 }
-      end
+    context do
+      let(:vote_stats) { double(:vote_stats, absent_count: 0, total: 0) }
 
-      context do
-        let(:response) do
-          {
-            absentCount: 0,
-            abstainCount: 0,
-            againstCount: 0,
-            forCount: 0
-          }
-        end
-
-        it { is_expected.to eq 1 }
-      end
+      it { is_expected.to eq 1 }
     end
   end
 end

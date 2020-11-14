@@ -1,4 +1,5 @@
 require "gosduma/external/duma_response"
+require "gosduma/member"
 
 module Gosduma
   class Members
