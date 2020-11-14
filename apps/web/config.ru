@@ -1,3 +1,4 @@
-require_relative 'web'
+require_relative "lib/gosduma/web"
+require "gosduma/web/app"
 
-run Gosduma::Web.freeze.app
+run Gosduma::Web::App.freeze.app
