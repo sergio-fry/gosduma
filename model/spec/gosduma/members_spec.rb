@@ -3,8 +3,6 @@ require "json"
 require "gosduma/member"
 require "gosduma/members"
 
-require "gosduma/external/http/http"
-
 module Gosduma
   RSpec.describe Members do
     let(:members) { Members.new limit: 10 }

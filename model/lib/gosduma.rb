@@ -33,9 +33,7 @@ module Gosduma
       External::HTTP::JSON.new
     end
 
-    register "config" do
-      Config.config
-    end
+    register("config") { Config.config }
   end
 
   Import = Dry::AutoInject(Container)

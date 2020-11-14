@@ -1,7 +1,6 @@
 require "json"
 require "gosduma/member"
 require "gosduma/member_presence"
-require "gosduma/external/http/http"
 
 module Gosduma
   RSpec.describe MemberPresence do

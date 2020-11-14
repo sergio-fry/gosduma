@@ -1,4 +1,3 @@
-require "gosduma/external/http/http"
 require "gosduma/external/http/json"
 
 module Gosduma
@@ -11,7 +10,7 @@ module Gosduma
 
         context do
           let(:response) do
-            HTTP::Response.new(status: 200, headers: {}, body: {foo: "bar"}.to_json)
+            double(:respoonse, status: 200, headers: {}, body: {foo: "bar"}.to_json)
           end
 
           it { expect(json.get("http://example.com/foo.json")).to eq({foo: "bar"}) }
