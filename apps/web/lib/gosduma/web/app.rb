@@ -1,13 +1,13 @@
 require "roda"
 
 require "gosduma"
-require "gosduma/web/cached_member"
 
 module Gosduma
   module Web
     class App < Roda
       plugin :json
       plugin :public
+      plugin :caching
 
       include Import["members"]
 
@@ -19,6 +19,8 @@ module Gosduma
 
         r.on "api" do
           r.is "members" do
+            response.cache_control public: true, max_age: 60
+
             members.call(limit: 1000)
               .take(200)
               .map { |member|

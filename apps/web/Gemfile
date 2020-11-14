@@ -8,6 +8,7 @@ gem "roda"
 gem "gosduma", path: "../../model"
 
 gem "redis"
+gem "redis-rack-cache"
 
 group :development, :test do
   gem "devup"

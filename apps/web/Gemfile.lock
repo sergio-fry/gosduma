@@ -52,9 +52,16 @@ GEM
       faraday (~> 1.0)
     multipart-post (2.1.1)
     rack (2.2.3)
+    rack-cache (1.12.1)
+      rack (>= 0.4)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     redis (4.2.2)
+    redis-rack-cache (2.2.1)
+      rack-cache (>= 1.10, < 2)
+      redis-store (>= 1.6, < 2)
+    redis-store (1.9.0)
+      redis (>= 4, < 5)
     roda (3.37.0)
       rack
     rspec (3.10.0)
@@ -83,6 +90,7 @@ DEPENDENCIES
   gosduma!
   rack-test
   redis
+  redis-rack-cache
   roda
   rspec
   shotgun
