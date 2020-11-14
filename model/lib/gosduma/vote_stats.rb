@@ -6,8 +6,7 @@ module Gosduma
     param :member_id
 
     def total
-      absent_count + abstain_count + against_count + for_count +
-        registration_count + registered_count
+      absent_count + abstain_count + against_count + for_count
     end
 
     def absent_count
@@ -24,14 +23,6 @@ module Gosduma
 
     def for_count
       response[:forCount].to_i
-    end
-
-    def registration_count
-      response[:registrationCount].to_i
-    end
-
-    def registered_count
-      response[:registeredCount].to_i
     end
 
     private
