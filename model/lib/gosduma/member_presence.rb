@@ -1,4 +1,3 @@
-require_relative "external/duma"
 require_relative "vote_stats"
 
 module Gosduma
