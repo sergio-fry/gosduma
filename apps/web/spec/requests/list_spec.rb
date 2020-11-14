@@ -13,7 +13,7 @@ module Gosduma
       end
 
       before { Container.stub("members", ->(_args) { members }) }
-      let(:members) { [Member.new(1)] }
+      let(:members) { [double(:member, id: 1, name: "Ivan", presence: 1.0)] }
       before { get "/api/members" }
 
       it { expect(last_response).to be_ok }
