@@ -3,7 +3,7 @@ module Gosduma
     class DumaResponse
       extend Dry::Initializer
       param :method
-      option :params, default: -> { {} }
+      option :params
 
       include Import["json"]
       include Import["config"]
