@@ -1,12 +1,13 @@
 require "roda"
 
 require "gosduma"
-require "gosduma/members"
 
 module Gosduma
   module Web
     class App < Roda
       plugin :json
+
+      include Import["members"]
 
       route do |r|
         r.root do
@@ -15,10 +16,8 @@ module Gosduma
 
         r.on "api" do
           r.get "list" do
-            members = Members.new(limit: 10)
-
-            members.map do |member|
-              {}
+            members.call(limit: 10).map do |member|
+              {id: member.id, name: member.name}
             end
           end
         end
