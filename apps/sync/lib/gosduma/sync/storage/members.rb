@@ -18,13 +18,18 @@ module Gosduma
         end
 
         def serialize(member)
-          {id: member.id}.to_json
+          {
+            id: member.id,
+            name: member.name
+          }.to_json
         end
 
         def deserialize(data)
           attrs = JSON.parse data, symbolize_names: true
+
           Member.new(
-            id: attrs[:id]
+            id: attrs[:id],
+            name: attrs[:name]
           )
         end
       end

@@ -4,6 +4,7 @@ module Gosduma
       class Member
         extend Dry::Initializer
         option :id
+        option :name
       end
     end
   end

@@ -5,13 +5,14 @@ module Gosduma
     module Storage
       RSpec.describe Members do
         let(:repo) { Members.new }
-        let(:member_origin) { double(:member, id: 1) }
+        let(:member_ivan) { double(:member, id: 1, name: "Ivan") }
 
-        before { repo << member_origin }
+        before { repo << member_ivan }
 
         describe "stored member" do
           subject(:member) { repo.first }
           it { expect(member.id).to eq 1 }
+          it { expect(member.name).to eq "Ivan" }
         end
       end
     end
