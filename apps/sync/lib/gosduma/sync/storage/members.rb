@@ -1,19 +1,31 @@
+require "json"
+
+require_relative "member"
+
 module Gosduma
   module Sync
     module Storage
       class Members
         include Enumerable
-
-        def initialize
-          @members = []
-        end
+        include Import["redis"]
 
         def <<(member)
-          @members << member
+          redis.hset :members, member.id, serialize(member)
         end
 
         def each
-          @members.each { |m| yield m }
+          redis.hgetall(:members).each { |k, m| yield deserialize(m) }
+        end
+
+        def serialize(member)
+          {id: member.id}.to_json
+        end
+
+        def deserialize(data)
+          attrs = JSON.parse data, symbolize_names: true
+          Member.new(
+            id: attrs[:id]
+          )
         end
       end
     end

@@ -1,4 +1,3 @@
-require "gosduma/member"
 require "gosduma/sync/storage/members"
 
 module Gosduma
@@ -6,11 +5,14 @@ module Gosduma
     module Storage
       RSpec.describe Members do
         let(:repo) { Members.new }
-        let(:member) { Member.new(1) }
+        let(:member_origin) { double(:member, id: 1) }
 
-        before { repo << member }
+        before { repo << member_origin }
 
-        it { expect(repo.to_a).to include member }
+        describe "stored member" do
+          subject(:member) { repo.first }
+          it { expect(member.id).to eq 1 }
+        end
       end
     end
   end

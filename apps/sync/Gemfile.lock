@@ -13,10 +13,15 @@ GEM
   remote: https://rubygems.org/
   specs:
     concurrent-ruby (1.1.7)
+    devup (0.5.2)
+      dotenv
+      dry-cli
     diff-lcs (1.4.4)
     dotenv (2.7.6)
     dry-auto_inject (0.7.0)
       dry-container (>= 0.3.4)
+    dry-cli (0.6.0)
+      concurrent-ruby (~> 1.0)
     dry-configurable (0.11.6)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.7)
@@ -84,6 +89,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  devup
   gosduma!
   redis
   redis-rack-cache
