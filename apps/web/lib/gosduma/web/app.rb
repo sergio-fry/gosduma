@@ -22,7 +22,7 @@ module Gosduma
             response.cache_control public: true, max_age: 60
 
             members.call(limit: 1000)
-              .take(200)
+              .take(300)
               .map { |member|
                 {id: member.id, name: member.name, presence: member.presence}
               }
