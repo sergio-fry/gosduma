@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/gosduma/sync"
+
+require "gosduma/sync/scheduler"
+
+scheduler = Gosduma::Sync::Schdeduler.new
+scheduler.run
