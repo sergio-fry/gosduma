@@ -2,10 +2,11 @@ require "dry-auto_inject"
 require "dry-initializer"
 require "dry-configurable"
 
-require "dotenv"
-Dotenv.load(".env.local", ".env")
+$LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__))))
 
-require "gosduma/version"
+require "dotenv"
+Dotenv.load(".env.services", ".env.local", ".env")
+
 require "gosduma/types"
 
 module Gosduma

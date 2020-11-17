@@ -1,3 +1,5 @@
+require "gosduma_helper"
+
 require "json"
 
 require "gosduma/member"
