@@ -3,10 +3,15 @@ GEM
   specs:
     byebug (11.1.3)
     concurrent-ruby (1.1.7)
+    devup (0.5.2)
+      dotenv
+      dry-cli
     diff-lcs (1.4.4)
     dotenv (2.7.6)
     dry-auto_inject (0.7.0)
       dry-container (>= 0.3.4)
+    dry-cli (0.6.0)
+      concurrent-ruby (~> 1.0)
     dry-configurable (0.11.6)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.7)
@@ -37,6 +42,7 @@ GEM
       faraday (~> 1.0)
     multipart-post (2.1.1)
     rake (12.3.3)
+    redis (4.2.3)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -57,6 +63,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  devup
   dotenv
   dry-auto_inject (~> 0.7.0)
   dry-initializer (~> 3.0.4)
@@ -64,6 +71,7 @@ DEPENDENCIES
   faraday (~> 1.1.0)
   faraday_middleware (~> 1.0.0)
   rake (~> 12.0)
+  redis
   rspec (~> 3.0)
 
 BUNDLED WITH

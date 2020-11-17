@@ -21,6 +21,7 @@ module Gosduma
     end
 
     setting :json, nil
+    setting :redis_url, ENV.fetch("REDIS_URL")
   end
 
   class Container
@@ -45,6 +46,36 @@ module Gosduma
     end
 
     register("config") { Config.config }
+
+    register "redis", memoize: true do
+      require "redis"
+
+      Redis.new(url: Config.config.redis_url)
+    end
+
+    register("members") do
+      require "gosduma/members"
+
+      Members.new
+    end
+
+    register("storage") do
+      require "gosduma/sync/storage/members"
+
+      Storage::Members.new
+    end
+
+    register "cache", memoize: true do
+      require "gosduma/sync/cache"
+
+      Cache.new
+    end
+
+    register "logger", memoize: true do
+      require "logger"
+
+      Logger.new(STDOUT)
+    end
   end
 
   Import = Dry::AutoInject(Container)

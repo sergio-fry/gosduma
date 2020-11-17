@@ -12,8 +12,10 @@ gem "dry-initializer", "~> 3.0.4"
 gem "dry-types", "~> 1.4.0"
 gem "faraday", "~> 1.1.0"
 gem "faraday_middleware", "~> 1.0.0"
+gem "redis"
 
 group :development, :test do
-  gem "rspec", "~> 3.0"
   gem "byebug"
+  gem "devup"
+  gem "rspec", "~> 3.0"
 end

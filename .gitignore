@@ -1,7 +1,9 @@
 /.bundle/
 /.env.local
+/.env.services
 /.rspec_status
 /.vimrc
+/.volumes
 /.yardoc
 /_yardoc/
 /coverage/

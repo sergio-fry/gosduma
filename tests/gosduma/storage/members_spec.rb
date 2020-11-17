@@ -1,3 +1,4 @@
+require "gosduma_helper"
 require "gosduma/sync/storage/members"
 
 module Gosduma
