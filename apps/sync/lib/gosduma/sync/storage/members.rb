@@ -20,7 +20,9 @@ module Gosduma
         def serialize(member)
           {
             id: member.id,
-            name: member.name
+            name: member.name,
+            position: member.position,
+            presence: member.presence
           }.to_json
         end
 
@@ -29,7 +31,9 @@ module Gosduma
 
           Member.new(
             id: attrs[:id],
-            name: attrs[:name]
+            name: attrs[:name],
+            position: attrs[:position],
+            presence: attrs[:presence]
           )
         end
       end
