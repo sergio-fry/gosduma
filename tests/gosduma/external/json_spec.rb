@@ -1,3 +1,5 @@
+require "gosduma_helper"
+
 require "gosduma/external/http/json"
 
 module Gosduma
