@@ -22,7 +22,7 @@ module Gosduma
         end
 
         def clear
-          # redis.del :members
+          redis.del :members
         end
 
         def serialize(member)

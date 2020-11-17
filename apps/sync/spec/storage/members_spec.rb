@@ -24,6 +24,11 @@ module Gosduma
           before { add_member(id: 2, name: "Petr") }
 
           it { expect(repo.to_a.size).to eq 2 }
+
+          context do
+            before { repo.clear }
+            it { expect(repo.to_a.size).to eq 0 }
+          end
         end
 
         let(:default_attrs) do
