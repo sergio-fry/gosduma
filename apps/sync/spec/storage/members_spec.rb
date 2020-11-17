@@ -5,7 +5,7 @@ module Gosduma
     module Storage
       RSpec.describe Members do
         let(:repo) { Members.new }
-        let(:member_ivan) { double(:member, id: 1, name: "Ivan", position: "deputy", presence: 0.7) }
+        let(:member_ivan) { build_member(name: "Ivan") }
 
         before { repo << member_ivan }
 
@@ -15,6 +15,14 @@ module Gosduma
           it { expect(member.name).to eq "Ivan" }
           it { expect(member.position).to eq "deputy" }
           it { expect(member.presence).to eq 0.7 }
+        end
+
+        let(:default_attrs) do
+          {id: 1, name: "Name", position: "deputy", presence: 0.7}
+        end
+
+        def build_member(attrs)
+          double(:member, default_attrs.merge(attrs))
         end
       end
     end
