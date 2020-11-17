@@ -7,6 +7,6 @@
 /coverage/
 /doc/
 /pkg/
-/spec/reports/
-/spec/examples.txt
+/tests/examples.txt
+/tests/reports/
 /tmp/
