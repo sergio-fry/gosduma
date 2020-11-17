@@ -17,6 +17,14 @@ module Gosduma
           redis.hgetall(:members).each { |k, m| yield deserialize(m) }
         end
 
+        def find_by_id(id)
+          find { |el| el.id == id }
+        end
+
+        def clear
+          # redis.del :members
+        end
+
         def serialize(member)
           {
             id: member.id,
