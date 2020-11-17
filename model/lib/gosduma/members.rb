@@ -5,7 +5,6 @@ module Gosduma
   class Members
     include Enumerable
     extend Dry::Initializer
-    option :limit
 
     def each
       resp = External::DumaResponse.new("deputies", params: {position: "Депутат ГД", current: 1}).call
