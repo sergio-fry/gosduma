@@ -22,11 +22,7 @@ module Gosduma
 
       register("members") do
         require "gosduma/members"
-        ->(*args) { Members.new(*args) }
-      end
-      register("vote_stats") do
-        require "gosduma/vote_stats"
-        ->(*args) { VoteStats.new(*args) }
+        Members.new
       end
 
       register "cache", memoize: true do
