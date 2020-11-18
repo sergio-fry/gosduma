@@ -6,7 +6,10 @@ module Gosduma
   module Web
     class App < Roda
       plugin :json
+
+      opts[:root] = __dir__
       plugin :public
+
       plugin :caching
 
       include Import["members"]
@@ -21,8 +24,7 @@ module Gosduma
           r.is "members" do
             response.cache_control public: true, max_age: 60
 
-            members.call(limit: 1000)
-              .take(300)
+            members.take(300)
               .map { |member|
                 {id: member.id, name: member.name, presence: member.presence}
               }
