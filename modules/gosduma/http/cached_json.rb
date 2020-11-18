@@ -14,7 +14,7 @@ module Gosduma
       end
 
       def json
-        External::HTTP::JSON.new
+        JSON.new
       end
     end
   end

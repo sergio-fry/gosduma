@@ -36,8 +36,8 @@ module Gosduma
     end
 
     register("json") do
-      require_relative "gosduma/external/http/cached_json"
-      CachedJSON.new ttl: (60 * 60 * 24)
+      require_relative "gosduma/http/cached_json"
+      HTTP::CachedJSON.new ttl: (60 * 60 * 24)
     end
 
     register("config") { Config.config }
@@ -69,7 +69,7 @@ module Gosduma
     register "logger", memoize: true do
       require "logger"
 
-      Logger.new(STDOUT)
+      Logger.new($stdout)
     end
   end
 
