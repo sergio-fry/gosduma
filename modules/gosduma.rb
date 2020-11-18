@@ -20,7 +20,6 @@ module Gosduma
       setting :app_token, ENV.fetch("DUMA_API_APP_TOKEN")
     end
 
-    setting :json, nil
     setting :redis_url, ENV.fetch("REDIS_URL")
   end
 
@@ -37,12 +36,8 @@ module Gosduma
     end
 
     register("json") do
-      if resolve("config").json.nil?
-        require_relative "gosduma/external/http/json"
-        External::HTTP::JSON.new
-      else
-        resolve("config").json
-      end
+      require_relative "gosduma/external/http/cached_json"
+      CachedJSON.new ttl: (60 * 60 * 24)
     end
 
     register("config") { Config.config }
@@ -62,7 +57,7 @@ module Gosduma
     register("storage") do
       require "gosduma/sync/storage/members"
 
-      Storage::Members.new
+      Sync::Storage::Members.new
     end
 
     register "cache", memoize: true do

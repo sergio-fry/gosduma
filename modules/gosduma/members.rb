@@ -1,4 +1,4 @@
-require "gosduma/external/duma_response"
+require "gosduma/duma_response"
 require "gosduma/member"
 
 module Gosduma
@@ -7,7 +7,7 @@ module Gosduma
     extend Dry::Initializer
 
     def each
-      resp = External::DumaResponse.new("deputies", params: {position: "Депутат ГД", current: 1}).call
+      resp = DumaResponse.new("deputies", params: {position: "Депутат ГД", current: 1}).call
 
       resp.each do |item|
         yield Member.new(

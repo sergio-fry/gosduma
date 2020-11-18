@@ -1,4 +1,4 @@
-require "gosduma/external/duma_response"
+require "gosduma/duma_response"
 
 module Gosduma
   class VoteStats
@@ -28,7 +28,7 @@ module Gosduma
     private
 
     def response
-      @response ||= External::DumaResponse.new("voteStats", params: {deputy: member_id}).call
+      @response ||= DumaResponse.new("voteStats", params: {deputy: member_id}).call
     end
   end
 end
