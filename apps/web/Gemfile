@@ -12,8 +12,8 @@ gem "redis-rack-cache"
 
 group :development, :test do
   gem "devup"
-  gem "rack-test"
   gem "rspec"
+  gem "rack-test"
   gem "shotgun"
   gem "warning"
 end

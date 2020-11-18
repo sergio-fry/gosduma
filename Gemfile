@@ -17,5 +17,8 @@ gem "redis"
 group :development, :test do
   gem "byebug"
   gem "devup"
+  gem "rack-test"
   gem "rspec", "~> 3.0"
+  gem "shotgun"
+  gem "warning"
 end
