@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem "rake", "~> 12.0"
 gem "dotenv"
@@ -13,6 +13,7 @@ gem "dry-types", "~> 1.4.0"
 gem "faraday", "~> 1.1.0"
 gem "faraday_middleware", "~> 1.0.0"
 gem "redis"
+gem "roda"
 
 group :development, :test do
   gem "byebug"

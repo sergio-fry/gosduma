@@ -1,9 +1,4 @@
-require "dotenv"
-Dotenv.load(".env.services", ".env.local", ".env")
-
 require "gosduma"
-
-$LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..")))
 
 module Gosduma
   module Sync
@@ -43,7 +38,7 @@ module Gosduma
       register "logger", memoize: true do
         require "logger"
 
-        Logger.new(STDOUT)
+        Logger.new($stdout)
       end
     end
 
