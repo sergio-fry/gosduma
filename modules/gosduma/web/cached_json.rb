@@ -1,4 +1,4 @@
-require "gosduma/external/http/json"
+require "gosduma/http/json"
 
 module Gosduma
   module Web

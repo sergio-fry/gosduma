@@ -1,7 +1,7 @@
-require "gosduma/external/http/json"
+require_relative "json"
 
 module Gosduma
-  module Sync
+  module HTTP
     class CachedJSON
       extend Dry::Initializer
       option :ttl, default: -> { 60 }
