@@ -24,7 +24,7 @@ module Gosduma
           r.is "members" do
             response.cache_control public: true, max_age: 60
 
-            members.take(300)
+            members
               .map { |member|
                 {id: member.id, name: member.name, presence: member.presence}
               }

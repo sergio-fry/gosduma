@@ -3,7 +3,7 @@ require "rufus-scheduler"
 module Gosduma
   module Sync
     class Schdeduler
-      include Import["members", "storage"]
+      include Import["members", storage: "storage.members"]
 
       def run
         rufus.every "1h", first_in: "10s", overlap: false do
