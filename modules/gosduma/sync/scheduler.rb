@@ -6,7 +6,7 @@ module Gosduma
       include Import["members", "storage"]
 
       def run
-        rufus.every "3s", overlap: false do
+        rufus.every "1h", first_in: "10s", overlap: false do
           store_members
         end
 
