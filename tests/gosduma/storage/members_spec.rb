@@ -1,5 +1,5 @@
 require "gosduma_helper"
-require "gosduma/sync/storage/members"
+require "gosduma/storage/members"
 
 module Gosduma
   module Sync

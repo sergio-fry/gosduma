@@ -61,7 +61,7 @@ module Gosduma
     end
 
     register "cache", memoize: true do
-      require "gosduma/sync/cache"
+      require "gosduma/cache"
 
       Cache.new
     end
