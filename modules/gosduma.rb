@@ -55,7 +55,7 @@ module Gosduma
     end
 
     register("storage") do
-      require "gosduma/sync/storage/members"
+      require "gosduma/storage/members"
 
       Sync::Storage::Members.new
     end
