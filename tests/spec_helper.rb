@@ -1,4 +1,5 @@
 require "bundler/setup"
+require_relative "../env"
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
