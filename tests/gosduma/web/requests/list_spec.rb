@@ -5,7 +5,7 @@ require "json"
 module Gosduma
   module Web
     RSpec.describe "GET /api/members", type: :request do
-      before { Container.stub("members", ->(_args) { members }) }
+      before { Container.stub("storage.members", members) }
       let(:members) { [double(:member, id: 1, name: "Ivan", presence: 1.0)] }
       before { get "/api/members" }
 

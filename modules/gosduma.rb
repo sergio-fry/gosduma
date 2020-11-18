@@ -26,7 +26,7 @@ module Gosduma
   class Container
     extend Dry::Container::Mixin
 
-    register("http", memoize: true) do
+    register(:http, memoize: true) do
       require "faraday"
       require "faraday_middleware"
 
@@ -35,38 +35,40 @@ module Gosduma
       end
     end
 
-    register("json") do
+    register(:json) do
       require_relative "gosduma/http/cached_json"
       HTTP::CachedJSON.new ttl: (60 * 60 * 24)
     end
 
-    register("config") { Config.config }
+    register(:config) { Config.config }
 
-    register "redis", memoize: true do
+    register :redis, memoize: true do
       require "redis"
 
       Redis.new(url: Config.config.redis_url)
     end
 
-    register("members") do
+    register(:members) do
       require "gosduma/members"
 
       Members.new
     end
 
-    register("storage") do
-      require "gosduma/storage/members"
+    namespace :storage do
+      register :members do
+        require "gosduma/storage/members"
 
-      Sync::Storage::Members.new
+        Sync::Storage::Members.new
+      end
     end
 
-    register "cache", memoize: true do
+    register :cache, memoize: true do
       require "gosduma/cache"
 
       Cache.new
     end
 
-    register "logger", memoize: true do
+    register :logger, memoize: true do
       require "logger"
 
       Logger.new($stdout)

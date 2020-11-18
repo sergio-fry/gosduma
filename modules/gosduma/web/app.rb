@@ -12,7 +12,7 @@ module Gosduma
 
       plugin :caching
 
-      include Import["members"]
+      include Import["storage.members"]
 
       route do |r|
         r.public
