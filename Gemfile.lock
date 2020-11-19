@@ -59,6 +59,8 @@ GEM
       dry-equalizer (~> 0.3)
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 1.0, >= 1.0.2)
+    et-orbi (1.2.4)
+      tzinfo
     falcon (0.36.7)
       async (~> 1.13)
       async-container (~> 0.16.0)
@@ -77,6 +79,9 @@ GEM
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
     fiber-local (1.0.0)
+    fugit (1.4.0)
+      et-orbi (~> 1.1, >= 1.1.8)
+      raabro (~> 1.4)
     localhost (1.1.6)
     mapping (1.1.1)
     multipart-post (2.1.1)
@@ -94,6 +99,7 @@ GEM
     protocol-http2 (0.14.1)
       protocol-hpack (~> 1.4)
       protocol-http (~> 0.18)
+    raabro (1.4.0)
     rack (2.2.3)
     rack-cache (1.12.1)
       rack (>= 0.4)
@@ -140,6 +146,8 @@ GEM
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
+    rufus-scheduler (3.6.0)
+      fugit (~> 1.1, >= 1.1.6)
     samovar (2.1.4)
       console (~> 1.0)
       mapping (~> 1.0)
@@ -149,6 +157,8 @@ GEM
       rubocop (= 1.0.0)
       rubocop-performance (= 1.8.1)
     timers (4.3.2)
+    tzinfo (2.0.3)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (1.7.0)
     warning (1.1.0)
 
@@ -171,6 +181,7 @@ DEPENDENCIES
   redis-rack-cache
   roda
   rspec (~> 3.0)
+  rufus-scheduler (~> 3.6)
   shotgun
   standard
   warning

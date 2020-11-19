@@ -26,3 +26,5 @@ group :development, :test do
   gem "standard"
   gem "warning"
 end
+
+gem "rufus-scheduler", "~> 3.6"

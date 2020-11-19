@@ -12,6 +12,17 @@ COPY Gemfile* /app/
 RUN bundle install
 
 
+# Test
+FROM build as test
+RUN rm /usr/local/bundle/config
+RUN bundle config unset without
+RUN bundle config set with 'development' 'test'
+RUN bundle install
+COPY . /app/
+VOLUME /data
+ENV APP_ENV=test
+
+
 # Runtime
 FROM ruby as runtime
 RUN rm -rf /usr/local/bundle
@@ -23,13 +34,3 @@ ENV APP_ENV=production
 EXPOSE 80
 CMD ["rackup", "--host", "0.0.0.0", "--port", "80"]
 
-
-# Test
-FROM build as test
-RUN rm /usr/local/bundle/config
-RUN bundle config unset without
-RUN bundle config set with 'development' 'test'
-RUN bundle install
-COPY . /app/
-VOLUME /data
-ENV APP_ENV=test
