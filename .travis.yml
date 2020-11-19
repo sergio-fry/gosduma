@@ -2,8 +2,8 @@ env:
   matrix:
   - APP_ENV=test BUNDLER_VERSION=2.1.4
   global:
-  - secure: dkFwKhLE7IUjuz1Usw0MQ7CMTPDfusTPl50Z7hyOCcQcoH6uqkwFSnG/TqELW5Ot5Sp/64jOpWqnecJK8Cf5/dol1beeboDD9G7LDF7MVcUHwq8LBsDRBO5ckOGVN80inPnVsMyPPHfeNQQj2pUWp4pmnwUmoKC5C3Nq7q56CAerSqPDfdjny3anK8Nn25Jq5/3Zf+P9YMWu9U4EVsvyesgblZBsZwNLwobGbMgYbCCttAIdMxD9xyHb6ZUJYKE5+FfQ7pj3s9b8ozR2OUGsfka5auLMAkjwWEu3ctUulXhoChNjL1tzGrxRfM26mGsOc1jRId4lX52TkaEAvhteac6ZfYNJ6FbmblYbBr4H8liPDCAxQPM5IPLPz/R9qdoMyVSrMwbEWfryk0Px0SpVGs4Gk2TP/VEfnBmf54sEk8QDXHXwgMCRemK3Hbkq9/SycNvc8NXRgmCkZnUKnBe4ZO2GEgPCW7Dl5rtlNHYxGyg5lW+CRAMSC0B7IF0q5ngg1lr5g3kryhk6w4piyOdjP+OOM2tPzjGqh0ivZfVT28VZfx3pL2m9WYCppq7foh5a9fmTPNzE/v44wugh7hDSMybE+lZmZ3hLgOEVIijq29sBIRcCUVgFebEjT6rMpiAwdbk+4tyb4jki0/kKOcNIF+1Ss709kcH3j5IdDcrqVkw=
-  - secure: 4B/2iSfy62mORyDwJwcKUSE+0jsPMLAP2J+9bJPc/UcWcdtqZEjeYAzwbJHTlehxIDGGR2DJrwQjsDNPcHPIx15s1GWCO/zlezauTh7qBJ/NeDpeVKM6B2TJaIW6jsxztVkSi0yCNvCUu59h7FUtyOPR9ut33yKV94fCEQLunsH1PmAzgXdEMNY+uy1CF8mh9wsdZjbbTvSBMSQNfxIWVuOKNvoXNcln0M6lgTG+GH+kDRf0DCMhVl/8pJdiiAB8vXe9x/RsPIIuAsal3TehPFBkpc3WJoD1JRFuOoUnOgtUVjxwYTungzxK0umliTtRKXJYH75Sosp+xGN0wj0w/WOlmlgxPneFNJ2WFf09wqquAzPwSGWRKaeesGzJu5WBanfbepOs5cVCUG8E+suAyj5iSlvwnM4Pg1cs5fS40QckxE09StBnDprKg/3k+Ks99Bj/A585vabgtg0Zq7uSf1z/ztl2yKqMOqTjV5ha3FWFei4badRHRMPUqGHavRm4lN3GIPOv/MOBK3ew+9tqhfnovpH4mAciFBAp6c8cpnVntFKx0qNrxTnb4k6HK7oQAf08q+CWGBWOHomSK4QFdrQxBEtSDA/PG5I07O+8Mknue//k+I8/2xIeRhZaWgBPfF3FfyNukyUhJ8DFBYRFabEvfq6rmdG86kGoGfVvV1Y=
+  - secure: iTB2/IWC/jpHJtEg75S1hlg09jPrf+YsBGKbo7x4v+gZcQWWYoDbzDpE6v0GlqrB4ENPw6KBEjq9NwBERDLMGAJDSnfON0LNe3WPBcCVpiBQQRMqKLg4RwY/2nTZfsCcEB3sfndyu82BhX0jcdLRd3JD7WAgtrA2z5dLQMgYieAVmalTb5CaJX/8wd4iyyraSxoPjjhEcUnvMRjyf7Dw223NpfkV0aEIajtaZnjrtFTIwbYD1w4oorVcdN/q5tH8xeMI1AEvtMbal0urReQHnW5GLZjxYx35MI0LyX7Ev9jsO+uSn4/vAyuJOH3KzeWCNnUxVuL0vSC2YCsfmxvQaMYd1C6CfjAOguVC6d6WnZlWmrMrabFXwC49k1ulvAz2N6Egjb5TvrMAD/Cz4YV9DA5/sP+a87x3Dmir+A7FL6fK0Cf0X+/24TAmwHC35F5/rq0eWcFTz6taNwEbi2LjgEG78PgSERyiP/ImBb4+qKhysuLDECJJlOXgTXdv65kazjA/pZZyidHWxNFLJNmb5H0aOvICq7ucRFENgtstivwSrdLOYQWVsgKOsBjeFgeE0bPBJD69++0nNtWZnQP/P3WUlDm5J2b01/61Q5cyI/yvLetJSxubENaXkd7xRw13G/4MdVFR9dtnWA1QEk0hAcGeW2rN7v3gSdQoy+pZsyQ=
+  - secure: VErO3Yf6R5/+ZXkzWtIUVdW24b8pZrt7uZDdYGOcPb909RXnJ/DgmHNHPzB3NBgBh0C2DvaR1IEWVfXGSQYeHWY7K51nhBxJaasatBVq/nOiNG9eHvCfEIW8BX6zP+TvobemCd5jHLqHgl9H/bgKXjcTk2/vQ4UT1W2hYR4jSU1sBrtkfCSkw3ms2Or2M25YgKUZIR+Bi5hUg/ZdMoeoZvlK9za1xDhl1NkP37wnfC7ChOLT1+65UhQG/Eh/s2R8e2POaDpSFcnE0W/PBjIJ38vDGMS/AmrWlzMlDlqLlRswXR3DM7JYWkfRtqSO/uqTtf7GAJa45GgZulbOGfcigXdPsalcnH3BMcng/FQTAsmaECgeck+/W0/ceCIYduOpdATWKjaj/xwx2znM5seG0v0rs9yNP+u8LwBGuXfUkQtWfD4IviXhHDUBl1AMS/S7bYs/fkDaijmZaY8LTHKx6NFS6OO71az4vwwyMYVNKfmMUJ2JktGI6CI93Q78u0saPhBFCusQyneSnhAs3gtVOs0sDwMUr2CKeWtIBHuKncW3Ty1shiQpCBXrXoxYjiolQ4pdsMjkqAn0oDTs0XMvArE53xYPUAl8rBuiSRLcmH3eLU7+5Sm8/pbABvPjwgEtbMq+Nxh9q20HGZapgzLC5ZAPNlntae4cdT7KAw06V5o=
 language: ruby
 cache: bundler
 rvm:
@@ -14,8 +14,8 @@ before_install:
 - gem install bundler -v $BUNDLER_VERSION
 bundler_args: "--jobs=3 --retry=3"
 stages:
-  - test
-  - build
+- test
+- build
 jobs:
   include:
   - stage: test
@@ -38,7 +38,6 @@ jobs:
   - stage: build
     name: Docker Image
     before_script:
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_LOGIN" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
     script:
     - docker build .
-
