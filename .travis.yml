@@ -32,9 +32,11 @@ jobs:
     name: Lint
     script:
     - bundle exec standardrb
-  - stage: test
+  - stage: build
     name: Docker Image
     before_script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
+    - docker pull udalov/gosduma
     script:
-    - docker build .
+    - docker build --tag udalov/gosduma .
+    - docker push udalov/gosduma
