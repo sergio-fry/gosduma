@@ -1,6 +1,8 @@
 env:
+  matrix:
   - APP_ENV=test BUNDLER_VERSION=2.1.4 DOCKER_COMPOSE_VERSION=1.27.4
-
+  global:
+    secure: wLaekpvO3uLiXCWC/wSjruaBkXaW6dtEhemyrzd8Fy5MMaGV3IxNg/KxTuF/gmneJnRXgzD2iRbfs8VW6q9whpE1cXVYKgsMR/om8TIn4fn6W9DL5AHnwnEtRmmMhjDJ1I5crA10ZZqFPdIi8tnp6AEJcW10kY/M2y7rG3QAOo+ZmLo+bZNlMQ/gAPJphOgjSq8KdbKtrlYOoCsnxmxFAkv528rtzp97oIKTQKPyqz5W6tfVHfdyIHTByFVYc4Fc4gWSWyqGqC+dn1wJQ0zlhPyGGjSqg7cDOEYdqt+aJnVZz/XwxfTXEOGtCWJcBupAn1GcA9sS/95DRT3O9McjfHuQqQCsyVGK1PmX+cAA95bC4GwncglwdDJc3mfk7i7wZ9WJdIu2tI3cN/cyUqr9zziF46+eH3mEIlaxm/ax/o4LmzJ/NQ0/kNZOis3fMDnKN1Q+X7tV/i0O20zKDcHGIC23Acp0hHG+lQOqIxrkRA33Fs/6T7LnJkIcjXrp1OD91d/3EH1t2lpJLK84rcXUN1UDVhIj+HWQV161a+R5tr0ENtel8QHhVwAEzqEPWtb3zRgmi43JpXOeHZyYA/RZOH7eojViFw0I/GnSxSwU/lk5L1QV5BGmAKmmNBnd6IGDCtC4KFkrGVYMU0CnkI76Nb0Nbz0QEd37hnfwaXJxMvE=
 language: ruby
 cache: bundler
 rvm:
@@ -10,25 +12,22 @@ services:
 before_install:
 - gem install bundler -v $BUNDLER_VERSION
 bundler_args: "--jobs=3 --retry=3"
-
 jobs:
   include:
-    - stage: test
-      name: RSpec
-      before_script:
-        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-          > ./cc-test-reporter
-        - chmod +x ./cc-test-reporter
-        - "./cc-test-reporter before-build"
-        - bundle exec devup up
-
-      script:
-        - bundle exec rspec
-
-      after_success:
-        - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
-
-    - stage: test
-      name: Lint
-      script:
-        - bundle exec standardrb
+  - stage: test
+    name: RSpec
+    before_script:
+    - puts $MY_SECRET_ENV
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+      > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - "./cc-test-reporter before-build"
+    - bundle exec devup up
+    script:
+    - bundle exec rspec
+    after_success:
+    - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - stage: test
+    name: Lint
+    script:
+    - bundle exec standardrb
