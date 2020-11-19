@@ -17,7 +17,7 @@ jobs:
   - stage: test
     name: RSpec
     before_script:
-    - puts $MY_SECRET_ENV
+    - echo $MY_SECRET_ENV
     - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
       > ./cc-test-reporter
     - chmod +x ./cc-test-reporter
