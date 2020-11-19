@@ -36,7 +36,7 @@ jobs:
     name: Docker Image
     before_script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
-    - docker pull udalov/gosduma
+    - docker pull udalov/gosduma || true
     script:
     - docker build --tag udalov/gosduma .
     - docker push udalov/gosduma
