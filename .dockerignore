@@ -1,0 +1,14 @@
+/.bundle/
+/.env.local
+/.env.services
+/.rspec_status
+/.vimrc
+/.volumes
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/tests/examples.txt
+/tests/reports/
+/tmp/
