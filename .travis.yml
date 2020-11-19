@@ -1,5 +1,6 @@
 env:
-  - APP_ENV=test BUNDLER_VERSION=2.1.4
+  - APP_ENV=test BUNDLER_VERSION=2.1.4 DOCKER_COMPOSE_VERSION=1.27.4
+
 language: ruby
 cache: bundler
 rvm:
@@ -19,7 +20,7 @@ jobs:
           > ./cc-test-reporter
         - chmod +x ./cc-test-reporter
         - "./cc-test-reporter before-build"
-        - devup up
+        - bundle exec devup up
 
       script:
         - bundle exec rspec
