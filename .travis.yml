@@ -1,0 +1,24 @@
+env:
+  matrix:
+  - BUNDLER_VERSION=2.1.4
+language: ruby
+cache: bundler
+rvm:
+- 2.6.6
+services:
+- docker
+before_install:
+- gem install bundler -v $BUNDLER_VERSION
+bundler_args: "--jobs=3 --retry=3"
+
+jobs:
+  include:
+    - stage: test
+      name: RSpec
+      script:
+        - bundle exec rake spec
+
+    - stage: test
+      name: Lint
+      script:
+        - bundle exec standardrb
