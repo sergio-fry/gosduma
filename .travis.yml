@@ -14,6 +14,8 @@ jobs:
   include:
     - stage: test
       name: RSpec
+      before_script:
+        - devup up
       script:
         - bundle exec rspec
 
