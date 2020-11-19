@@ -1,5 +1,5 @@
 env:
-  matrix:
+  - APP_ENV=test
   - BUNDLER_VERSION=2.1.4
 language: ruby
 cache: bundler
