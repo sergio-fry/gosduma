@@ -24,7 +24,7 @@ ENV APP_ENV=test
 
 
 # Runtime
-FROM ruby as runtime
+FROM ruby
 RUN rm -rf /usr/local/bundle
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY . /app/

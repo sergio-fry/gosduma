@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    ports:
+      - 9292:80
+    networks:
+      - webnet
+
+    env_file:
+      - .env.local
+
+    environment:
+      REDIS_URL: redis://redis:6379/2
+
+  sync:
+    command: "ruby bin/sync"
+    build: .
+    networks:
+      - webnet
+
+    env_file:
+      - .env.local
+
+    environment:
+      REDIS_URL: redis://redis:6379/2
+      
+
+  redis:
+    image: redis:6.0.9-alpine
+    volumes:
+      - ".volumes/redis:/data"
+
+    networks:
+      - webnet
+
+
+networks:
+  webnet:

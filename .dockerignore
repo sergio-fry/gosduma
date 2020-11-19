@@ -1,5 +1,4 @@
 /.bundle/
-/.env.local
 /.env.services
 /.rspec_status
 /.vimrc
