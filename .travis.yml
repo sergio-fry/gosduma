@@ -16,7 +16,7 @@ jobs:
     - stage: test
       name: RSpec
       script:
-        - bundle exec rake spec
+        - bundle exec rspec
 
     - stage: test
       name: Lint
