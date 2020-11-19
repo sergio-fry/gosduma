@@ -23,5 +23,6 @@ group :development, :test do
   gem "rack-test"
   gem "rspec", "~> 3.0"
   gem "shotgun"
+  gem "standard"
   gem "warning"
 end
