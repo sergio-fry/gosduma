@@ -2,7 +2,8 @@ env:
   matrix:
   - APP_ENV=test BUNDLER_VERSION=2.1.4
   global:
-    secure: dkFwKhLE7IUjuz1Usw0MQ7CMTPDfusTPl50Z7hyOCcQcoH6uqkwFSnG/TqELW5Ot5Sp/64jOpWqnecJK8Cf5/dol1beeboDD9G7LDF7MVcUHwq8LBsDRBO5ckOGVN80inPnVsMyPPHfeNQQj2pUWp4pmnwUmoKC5C3Nq7q56CAerSqPDfdjny3anK8Nn25Jq5/3Zf+P9YMWu9U4EVsvyesgblZBsZwNLwobGbMgYbCCttAIdMxD9xyHb6ZUJYKE5+FfQ7pj3s9b8ozR2OUGsfka5auLMAkjwWEu3ctUulXhoChNjL1tzGrxRfM26mGsOc1jRId4lX52TkaEAvhteac6ZfYNJ6FbmblYbBr4H8liPDCAxQPM5IPLPz/R9qdoMyVSrMwbEWfryk0Px0SpVGs4Gk2TP/VEfnBmf54sEk8QDXHXwgMCRemK3Hbkq9/SycNvc8NXRgmCkZnUKnBe4ZO2GEgPCW7Dl5rtlNHYxGyg5lW+CRAMSC0B7IF0q5ngg1lr5g3kryhk6w4piyOdjP+OOM2tPzjGqh0ivZfVT28VZfx3pL2m9WYCppq7foh5a9fmTPNzE/v44wugh7hDSMybE+lZmZ3hLgOEVIijq29sBIRcCUVgFebEjT6rMpiAwdbk+4tyb4jki0/kKOcNIF+1Ss709kcH3j5IdDcrqVkw=
+  - secure: dkFwKhLE7IUjuz1Usw0MQ7CMTPDfusTPl50Z7hyOCcQcoH6uqkwFSnG/TqELW5Ot5Sp/64jOpWqnecJK8Cf5/dol1beeboDD9G7LDF7MVcUHwq8LBsDRBO5ckOGVN80inPnVsMyPPHfeNQQj2pUWp4pmnwUmoKC5C3Nq7q56CAerSqPDfdjny3anK8Nn25Jq5/3Zf+P9YMWu9U4EVsvyesgblZBsZwNLwobGbMgYbCCttAIdMxD9xyHb6ZUJYKE5+FfQ7pj3s9b8ozR2OUGsfka5auLMAkjwWEu3ctUulXhoChNjL1tzGrxRfM26mGsOc1jRId4lX52TkaEAvhteac6ZfYNJ6FbmblYbBr4H8liPDCAxQPM5IPLPz/R9qdoMyVSrMwbEWfryk0Px0SpVGs4Gk2TP/VEfnBmf54sEk8QDXHXwgMCRemK3Hbkq9/SycNvc8NXRgmCkZnUKnBe4ZO2GEgPCW7Dl5rtlNHYxGyg5lW+CRAMSC0B7IF0q5ngg1lr5g3kryhk6w4piyOdjP+OOM2tPzjGqh0ivZfVT28VZfx3pL2m9WYCppq7foh5a9fmTPNzE/v44wugh7hDSMybE+lZmZ3hLgOEVIijq29sBIRcCUVgFebEjT6rMpiAwdbk+4tyb4jki0/kKOcNIF+1Ss709kcH3j5IdDcrqVkw=
+  - secure: 4B/2iSfy62mORyDwJwcKUSE+0jsPMLAP2J+9bJPc/UcWcdtqZEjeYAzwbJHTlehxIDGGR2DJrwQjsDNPcHPIx15s1GWCO/zlezauTh7qBJ/NeDpeVKM6B2TJaIW6jsxztVkSi0yCNvCUu59h7FUtyOPR9ut33yKV94fCEQLunsH1PmAzgXdEMNY+uy1CF8mh9wsdZjbbTvSBMSQNfxIWVuOKNvoXNcln0M6lgTG+GH+kDRf0DCMhVl/8pJdiiAB8vXe9x/RsPIIuAsal3TehPFBkpc3WJoD1JRFuOoUnOgtUVjxwYTungzxK0umliTtRKXJYH75Sosp+xGN0wj0w/WOlmlgxPneFNJ2WFf09wqquAzPwSGWRKaeesGzJu5WBanfbepOs5cVCUG8E+suAyj5iSlvwnM4Pg1cs5fS40QckxE09StBnDprKg/3k+Ks99Bj/A585vabgtg0Zq7uSf1z/ztl2yKqMOqTjV5ha3FWFei4badRHRMPUqGHavRm4lN3GIPOv/MOBK3ew+9tqhfnovpH4mAciFBAp6c8cpnVntFKx0qNrxTnb4k6HK7oQAf08q+CWGBWOHomSK4QFdrQxBEtSDA/PG5I07O+8Mknue//k+I8/2xIeRhZaWgBPfF3FfyNukyUhJ8DFBYRFabEvfq6rmdG86kGoGfVvV1Y=
 language: ruby
 cache: bundler
 rvm:
@@ -12,6 +13,9 @@ services:
 before_install:
 - gem install bundler -v $BUNDLER_VERSION
 bundler_args: "--jobs=3 --retry=3"
+stages:
+  - test
+  - build
 jobs:
   include:
   - stage: test
@@ -31,3 +35,10 @@ jobs:
     name: Lint
     script:
     - bundle exec standardrb
+  - stage: build
+    name: Docker Image
+    before_script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_LOGIN" --password-stdin
+    script:
+    - docker build .
+
